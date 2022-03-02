@@ -34,7 +34,6 @@ const getLoadPhone = (phones)=>{
     }
     container.innerHTML = "";
     document.getElementById('product').innerText = "Products";
-
     phones?.forEach(phone => {
             const div = document.createElement('div');
             div.className = 'p-2 m-4 rounded border';
@@ -69,16 +68,15 @@ const getDetails = async (detail)=>{
 //==================
 const detailsSetData = (details) =>{
     const detailsContainer = document.getElementById('details');
-    console.log(details);
     const div = document.createElement('div');
     document.getElementById('loader-container').style.display = 'none';
     detailsContainer.textContent = "";
     div.innerHTML = `
                 <div class="detail p-2 my-3  border  font-light rounded">
                     <div class="details-img flex items-center flex-col my-4 ">
-                        <img src="${details.image}" width="200px" alt="img">
+                        <img src="${details.image}" class = "mb-4" width="200px" alt="img">
                         <h2 class= "text-2xl">${details.name}</h2>
-                        <h4  class="text-1xl">${details.releaseDate}</h4>
+                        <h4  class="text-1xl">${details.releaseDate? details.releaseDate: ' '}</h4>
                     </div>
                     <div class="date grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
