@@ -34,15 +34,12 @@ const getLoadPhone = (phones)=>{
             const div = document.createElement('div');
             div.className = 'p-2 m-4 rounded border';
             div.innerHTML = `
-                        <div class="img-div  mb-4 ">
-                            <img src="" width="100%" class="rounded" alt="player">
+                        <div class="img-div  mb-4 flex justify-center ">
+                            <img src="${phone.image}" width="70%" class="rounded" alt="player">
                         </div>
-                        <h3 class="text-2xl mb-2"></h3>
-                        <h4 class="text-1xl"> </h4>
-                        <div class="player-btn flex justify-between my-3">
-                            <button id="delete-btn" class=" delete-button py-2 px-4 rounded border bg-red-500 text-white">Delete</button>
-                            <button  class="py-2 px-4 rounded border bg-green-500 text-white">Details</button>
-                        </div>
+                        <h3 class="text-2xl mb-2">${phone.phone_name}</h3>
+                        <h4 class="text-1xl">${phone.brand}</h4>
+                        <button  class="py-2 px-4 rounded border bg-green-500 text-white">Details</button>
             `;
             container.appendChild(div);
     });
