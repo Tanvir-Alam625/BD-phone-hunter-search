@@ -22,8 +22,12 @@ const getLoadPhone = (phones)=>{
     document.getElementById('loader-container').style.display = 'none';
     const container = document.getElementById('result-phone');
     const ErrorMessage = document.getElementById('error-message');
+    ErrorMessage.innerText = "";
+    if(phones.length == 0){
+        console.log('null');
+        ErrorMessage.innerText = "No Players Items";
+    }
     try{
-        ErrorMessage.innerText = "";
         container.innerHTML = "";
         phones.forEach(phone => {
             console.log(phone);
@@ -43,6 +47,7 @@ const getLoadPhone = (phones)=>{
             container.appendChild(div);
     });
     }catch(error){
-        ErrorMessage.innerText = "No Players Items";
+        // ErrorMessage.innerText = "No Players Items";
+        console.log('this null');
     }
 }
