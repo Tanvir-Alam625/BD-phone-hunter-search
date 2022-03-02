@@ -40,7 +40,7 @@ const getLoadPhone = (phones)=>{
                         <h3 class="text-2xl mb-2">${phone.phone_name}</h3>
                         <h4 class="text-1xl mb-3">${phone.brand}</h4>
                         <a href="#details"
-                        <button onclick="getDetails('${phone.slug}')" class="py-2 px-4 rounded border bg-green-500 text-white">Details</button>
+                        <button onclick="getDetails('${phone.slug}')" class="py-2 mb-2 px-4 rounded border bg-green-500 text-white">Details</button>
                         </a>
 
             `;
@@ -53,7 +53,7 @@ const getLoadPhone = (phones)=>{
 // details function 
 const getDetails = async (detail)=>{
     console.log(detail);
-    // document.getElementById('loader-container').style.display = 'block';
+    document.getElementById('loader-container').style.display = 'block';
 
     const url = `https://openapi.programming-hero.com/api/phone/${detail}`;
     console.log(url);
@@ -70,117 +70,112 @@ const detailsSetData = (details) =>{
     document.getElementById('loader-container').style.display = 'none';
     detailsContainer.textContent = "";
     div.innerHTML = `
-                <div class="detail p-2 border">
-                    <div class="details-img flex justify-center">
-                        <img src="./image/ac402f57b35961d66cfbee27472c65a3.gif" width="200px" alt="img">
+                <div class="detail p-2 my-3  border">
+                    <div class="details-img flex items-center flex-col my-4 ">
+                        <img src="${details.image}" width="200px" alt="img">
+                        <h2 class= "text-2xl">${details.name}</h2>
+                        <h4  class="text-1xl">${details.releaseDate}</h4>
                     </div>
-                    <div class="name grid grid-cols-2 w-[100%] border-y">
+                    <div class="date grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
-                            <h2 >Name:</h2>
+                            <h2>Brand:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
+                            <h2 >${details.brand}</h2>
                         </div>
                     </div>
-                    <div class="date grid grid-cols-2 w-[100%] border-y">
-                        <div class="w-[30%] p-2 ">
-                            <h2 >Release date:</h2>
-                        </div>
-                        <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
-                        </div>
-                    </div>
-                    <div class="storage grid grid-cols-2 w-[100%] border-y">
+                    <div class="storage grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
                             <h2 >Storage:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
+                            <h2>${details.mainFeatures.storage}</h2>
                         </div>
                     </div>
-                    <div class="display grid grid-cols-2 w-[100%] border-y">
+                    <div class="display grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
                             <h2 >Display-Size</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
+                            <h2 >${details.mainFeatures.displaySize}</h2>
                         </div>
                     </div>
-                    <div class="chip-set grid grid-cols-2 w-[100%] border-y">
+                    <div class="chip-set grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
                             <h2 >Chip-set:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
+                            <h2 >${details.mainFeatures.chipSet}</h2>
                         </div>
                     </div>
-                    <div class="memory grid grid-cols-2 w-[100%] border-y">
+                    <div class="memory grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
                             <h2 >Memory:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
+                            <h2 >${details.mainFeatures.memory}</h2>
                         </div>
                     </div>
-                    <div class="sensors grid grid-cols-2 w-[100%] border-y">
+                    <div class="sensors grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
                             <h2 >Sensors:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
+                            <h2 >${details.mainFeatures.sensors.join(", ")}</h2>
                         </div>
                     </div>
-                    <div class="sensors grid grid-cols-1 w-[100%] border-y">
-                            <h2 class="text-1xl" >Others</h2>
+                    <div class="sensors grid grid-cols-1 w-[100%] border-t">
+                            <h2 class="text-1xl text-center" >Others</h2>
                     </div>
-                    <div class="WLAN grid grid-cols-2 w-[100%] border-y">
+                    <div class="WLAN grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
                             <h2 >WLAN:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
+                            <h2 >${details.others.WLAN}</h2>
                         </div>
                     </div>
-                    <div class="bluetooth grid grid-cols-2 w-[100%] border-y">
+                    <div class="bluetooth grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
                             <h2 >Bluetooth:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
+                            <h2 >${details.others.Bluetooth}</h2>
                         </div>
                     </div>
-                    <div class="GPS grid grid-cols-2 w-[100%] border-y">
+                    <div class="GPS grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
                             <h2 >GPS:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
+                            <h2 >${details.others.GPS}</h2>
                         </div>
                     </div>
-                    <div class="NFC grid grid-cols-2 w-[100%] border-y">
+                    <div class="NFC grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
                             <h2 >NFC:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
+                            <h2 >${details.others.NFC}</h2>
                         </div>
                     </div>
-                    <div class="Radio grid grid-cols-2 w-[100%] border-y">
+                    <div class="Radio grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
                             <h2 >Radio:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
+                            <h2 >${details.others.Radio}</h2>
                         </div>
                     </div>
-                    <div class="USB grid grid-cols-2 w-[100%] border-y">
+                    <div class="USB grid grid-cols-2 w-[100%] border-t">
                         <div class="w-[30%] p-2 ">
                             <h2 >USB:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >value:</h2>
+                            <h2 >${details.others.USB}</h2>
                         </div>
                     </div>
                 </div>`;
+                console.log(details.mainFeatures.sensors.join(", "));
     detailsContainer.appendChild(div);
 }
