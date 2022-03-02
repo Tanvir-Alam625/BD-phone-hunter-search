@@ -1,6 +1,6 @@
-// ===========================================
+// ========================
 //  get api link function 
-// ===========================================
+// ========================
 const searchPhone = async ()=>{
     const input = document.getElementById('input-values');
     const emptyV = input.value
@@ -30,7 +30,6 @@ const getLoadPhone = (phones)=>{
     }
     container.innerHTML = "";
     phones?.forEach(phone => {
-            console.log(phone);
             const div = document.createElement('div');
             div.className = 'p-2 m-4 rounded border';
             div.innerHTML = `
@@ -47,22 +46,21 @@ const getLoadPhone = (phones)=>{
             container.appendChild(div);
     }); 
 }
-
-
-
-// details function 
+//======================
+// details api  function 
+//======================
 const getDetails = async (detail)=>{
     console.log(detail);
     document.getElementById('loader-container').style.display = 'block';
-
     const url = `https://openapi.programming-hero.com/api/phone/${detail}`;
     console.log(url);
     const data = await fetch(url)
     const response = await data.json();
-    
-    console.log(response.data);
     detailsSetData(response.data);
 }
+//==================
+// details set value 
+//==================
 const detailsSetData = (details) =>{
     const detailsContainer = document.getElementById('details');
     console.log(details);
