@@ -14,21 +14,27 @@ const searchPhone = async ()=>{
     const data = await response.json();
     getLoadPhone(data.data);
     input.value= "";
+    
     }
 }
 //====================
 // data load function 
 //====================
 const getLoadPhone = (phones)=>{
-    document.getElementById('loader-container').style.display = 'none';
     const container = document.getElementById('result-phone');
     const ErrorMessage = document.getElementById('error-message');
+    const detailsContainer = document.getElementById('details');
+    document.getElementById('loader-container').style.display = 'none';
     ErrorMessage.innerText = "";
+    detailsContainer.textContent = "";
     if(phones.length == 0){
         console.log('null');
         ErrorMessage.innerText = "No phones items";
+        document.getElementById('product').innerText = "";
     }
     container.innerHTML = "";
+    document.getElementById('product').innerText = "Products";
+
     phones?.forEach(phone => {
             const div = document.createElement('div');
             div.className = 'p-2 m-4 rounded border';
@@ -68,7 +74,7 @@ const detailsSetData = (details) =>{
     document.getElementById('loader-container').style.display = 'none';
     detailsContainer.textContent = "";
     div.innerHTML = `
-                <div class="detail p-2 my-3  border">
+                <div class="detail p-2 my-3  border  font-light rounded">
                     <div class="details-img flex items-center flex-col my-4 ">
                         <img src="${details.image}" width="200px" alt="img">
                         <h2 class= "text-2xl">${details.name}</h2>
@@ -79,7 +85,7 @@ const detailsSetData = (details) =>{
                             <h2>Brand:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >${details.brands? details.brands: '❌'}</h2>
+                            <h2 >${details.brand? details.brand: '❌'}</h2>
                         </div>
                     </div>
                     <div class="storage grid grid-cols-2 w-[100%] border-t">
