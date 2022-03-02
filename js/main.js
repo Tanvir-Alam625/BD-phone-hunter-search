@@ -29,7 +29,7 @@ const getLoadPhone = (phones)=>{
         ErrorMessage.innerText = "No phones items";
     }
     container.innerHTML = "";
-    phones.forEach(phone => {
+    phones?.forEach(phone => {
             console.log(phone);
             const div = document.createElement('div');
             div.className = 'p-2 m-4 rounded border';
@@ -81,7 +81,7 @@ const detailsSetData = (details) =>{
                             <h2>Brand:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >${details.brand}</h2>
+                            <h2 >${details.brands? details.brands: '❌'}</h2>
                         </div>
                     </div>
                     <div class="storage grid grid-cols-2 w-[100%] border-t">
@@ -89,7 +89,7 @@ const detailsSetData = (details) =>{
                             <h2 >Storage:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2>${details.mainFeatures.storage}</h2>
+                            <h2>${details.mainFeatures.storage? details.mainFeatures.storage: '❌' }</h2>
                         </div>
                     </div>
                     <div class="display grid grid-cols-2 w-[100%] border-t">
@@ -97,7 +97,7 @@ const detailsSetData = (details) =>{
                             <h2 >Display-Size</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >${details.mainFeatures.displaySize}</h2>
+                            <h2 >${details.mainFeatures.displaySize? details.mainFeatures.displaySize: '❌'}</h2>
                         </div>
                     </div>
                     <div class="chip-set grid grid-cols-2 w-[100%] border-t">
@@ -105,7 +105,7 @@ const detailsSetData = (details) =>{
                             <h2 >Chip-set:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >${details.mainFeatures.chipSet}</h2>
+                            <h2 >${details.mainFeatures.chipSet? details.mainFeatures.chipSet: '❌'}</h2>
                         </div>
                     </div>
                     <div class="memory grid grid-cols-2 w-[100%] border-t">
@@ -113,7 +113,7 @@ const detailsSetData = (details) =>{
                             <h2 >Memory:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >${details.mainFeatures.memory}</h2>
+                            <h2 >${details.mainFeatures.memory ? details.mainFeatures.memory: '❌'}</h2>
                         </div>
                     </div>
                     <div class="sensors grid grid-cols-2 w-[100%] border-t">
@@ -121,7 +121,7 @@ const detailsSetData = (details) =>{
                             <h2 >Sensors:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >${details.mainFeatures.sensors.join(", ")}</h2>
+                            <h2 >${details.mainFeatures.sensors? details.mainFeatures.sensors.join(", "): '❌'}</h2>
                         </div>
                     </div>
                     <div class="sensors grid grid-cols-1 w-[100%] border-t">
@@ -132,7 +132,7 @@ const detailsSetData = (details) =>{
                             <h2 >WLAN:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >${details.others.WLAN}</h2>
+                            <h2 >${details.others.WLAN? details.others.WLAN: '❌'}</h2>
                         </div>
                     </div>
                     <div class="bluetooth grid grid-cols-2 w-[100%] border-t">
@@ -140,7 +140,7 @@ const detailsSetData = (details) =>{
                             <h2 >Bluetooth:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >${details.others.Bluetooth}</h2>
+                            <h2 >${details.others.Bluetooth? details.others.Bluetooth: '❌'}</h2>
                         </div>
                     </div>
                     <div class="GPS grid grid-cols-2 w-[100%] border-t">
@@ -148,7 +148,7 @@ const detailsSetData = (details) =>{
                             <h2 >GPS:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >${details.others.GPS}</h2>
+                            <h2 >${details.others.GPS? details.others.GPS: '❌'}</h2>
                         </div>
                     </div>
                     <div class="NFC grid grid-cols-2 w-[100%] border-t">
@@ -156,7 +156,7 @@ const detailsSetData = (details) =>{
                             <h2 >NFC:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >${details.others.NFC}</h2>
+                            <h2 >${details.others.NFC? details.others.NFC: '❌'}</h2>
                         </div>
                     </div>
                     <div class="Radio grid grid-cols-2 w-[100%] border-t">
@@ -164,7 +164,7 @@ const detailsSetData = (details) =>{
                             <h2 >Radio:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >${details.others.Radio}</h2>
+                            <h2 >${details.others.Radio ? details.others.Radio: '❌'}</h2>
                         </div>
                     </div>
                     <div class="USB grid grid-cols-2 w-[100%] border-t">
@@ -172,10 +172,9 @@ const detailsSetData = (details) =>{
                             <h2 >USB:</h2>
                         </div>
                         <div class="w-[70%] p-2 border-l">
-                            <h2 >${details.others.USB}</h2>
+                            <h2 >${details.others.USB? details.others.USB: '❌'}</h2>
                         </div>
                     </div>
                 </div>`;
-                console.log(details.mainFeatures.sensors.join(", "));
     detailsContainer.appendChild(div);
 }
