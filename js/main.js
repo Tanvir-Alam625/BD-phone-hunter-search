@@ -28,28 +28,30 @@ const getLoadPhone = (phones)=>{
     ErrorMessage.innerText = "";
     detailsContainer.textContent = "";
     if(phones.length == 0){
-        console.log('null');
+        container.innerHTML = "";
         ErrorMessage.innerText = "No phones items";
         document.getElementById('product').innerText = "";
-    }
-    container.innerHTML = "";
-    document.getElementById('product').innerText = "Products";
-    phones?.forEach(phone => {
-            const div = document.createElement('div');
-            div.className = 'p-2 m-4 rounded border';
-            div.innerHTML = `
-                        <div class="img-div  mb-4 flex justify-center ">
-                            <img src="${phone.image}" width="70%" class="rounded" alt="player">
-                        </div>
-                        <h3 class="text-2xl mb-2">${phone.phone_name}</h3>
-                        <h4 class="text-1xl mb-3">${phone.brand}</h4>
-                        <a href="#details"
-                        <button onclick="getDetails('${phone.slug}')" class="py-2 mb-2 px-4 rounded border bg-green-500 text-white">Details</button>
-                        </a>
+    }else{
+        container.innerHTML = "";
+        document.getElementById('product').innerText = "Products";
+        phones?.forEach(phone => {
+                const div = document.createElement('div');
+                div.className = 'p-2 m-4 rounded border';
+                div.innerHTML = `
+                            <div class="img-div  mb-4 flex justify-center ">
+                                <img src="${phone.image}" width="70%" class="rounded" alt="player">
+                            </div>
+                            <h3 class="text-2xl mb-2">${phone.phone_name}</h3>
+                            <h4 class="text-1xl mb-3">${phone.brand}</h4>
+                            <a href="#details"
+                            <button onclick="getDetails('${phone.slug}')" class="py-2 mb-2 px-4 rounded border bg-green-500 text-white">Details</button>
+                            </a>
 
-            `;
-            container.appendChild(div);
-    }); 
+                `;
+                container.appendChild(div);
+        
+        });
+    } 
 }
 //======================
 // details api  function 
