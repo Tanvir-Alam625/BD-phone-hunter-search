@@ -1,65 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BD Phones</title>
     <!-- tailwind play cdn link  -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- google font link  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        html,*{
-            scroll-behavior: smooth;
-        }
-        body{
-            font-family: 'Montserrat', sans-serif;
-        }
-        #loader-container{
-            display: none;
-        }
-        #player-error{
-            color: red;
-            text-align: center;
-        }
-        #details{
-            font-weight: 400 !important;
-        }
+      html,
+      * {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+      #loader-container {
+        display: none;
+      }
+      #player-error {
+        color: red;
+        text-align: center;
+      }
+      #details {
+        font-weight: 400 !important;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <main class="grid grid-cols-1">
-         <!-- search container  -->
-        <section >
-            <!-- search header  -->
-            <header class=" flex justify-center bg-green-400">
-                <h2 class="text-white text-2xl md:text-4xl my-3 ">BD Phone Store</h2>
-            </header>
-            <!-- search box -->
-            <div class="search-box my-4 flex  justify-center">
-                <input type="text" id="input-values" class="border outline-none focus:border-2 overflow-hidden rounded py-2 px-4" placeholder="Search">
-                <button onclick="searchPhone()" class="border rounded px-3 focus:border-2 hover:bg-slate-500 ease-in-out hover:text-white">Search</button>
-            </div>
-            <!-- snniper loader  -->
-            <div id="loader-container">
-                <div id="loader" class="loader h-[100px] z-20  mx-auto flex justify-center items-center overflow-hidden w-[300px]">
-                    <img src="./image/ac402f57b35961d66cfbee27472c65a3.gif" alt="">
-                </div>
-            </div>
-            <!-- details container -->
-            <section id="details" class=" mx-2 md:mx-4">
-                
-            </section>
-            <!-- search result  -->
-            <h2 id="error-message" class="text-center"></h2>
-            <h1 id="product" class="text-3xl text-green-500 text-center"></h1>
-            <section id="result-phone" class="result grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1  ">
-            </section>
-        </section>
+      <!-- search container  -->
+      <section>
+        <!-- search header  -->
+        <header class="flex justify-center bg-purple-400">
+          <h2 class="text-white text-2xl md:text-4xl my-3">BD Phone Store</h2>
+        </header>
+        <!-- search box -->
+        <div class="search-box my-4 flex justify-center">
+          <input
+            type="text"
+            id="input-values"
+            class="border outline-none focus:border-2 overflow-hidden rounded py-2 px-4"
+            placeholder="Search"
+          />
+          <button
+            onclick="searchPhone()"
+            class="border rounded px-3 focus:border-2 hover:bg-slate-500 ease-in-out hover:text-white"
+          >
+            Search
+          </button>
+        </div>
+        <!-- snniper loader  -->
+        <div id="loader-container">
+          <div
+            id="loader"
+            class="loader h-[100px] z-20 mx-auto flex justify-center items-center overflow-hidden w-[300px]"
+          >
+            <img src="./image/ac402f57b35961d66cfbee27472c65a3.gif" alt="" />
+          </div>
+        </div>
+        <!-- details container -->
+        <section id="details" class="mx-2 md:mx-4"></section>
+        <!-- search result  -->
+        <h2 id="error-message" class="text-center"></h2>
+        <h1 id="product" class="text-3xl text-purple-500 text-center"></h1>
+        <section
+          id="result-phone"
+          class="result grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1"
+        ></section>
+      </section>
     </main>
     <script src="./js/main.js"></script>
-</body>
+  </body>
 </html>
